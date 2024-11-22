@@ -31,18 +31,13 @@ public class Lab11Prob01 {
 	}
 }
 
-public class Person<E> implements Comparable<E> {
+public class Person implements Comparable<Person> {
 
 	int age;
 	String name;
 	String Address;
 	int zipCode;
 	double salary;
-	
-	@Override
-	public int compareTo(Object o) {
-		return 0;
-	}
 	
 	public void setAge(int age) {
 		this.age = age;
