@@ -3,9 +3,13 @@ import java.io.EOFException;
 import java.io.FileOutputStream;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.util.ArrayList;
+
+
 
 public class Lab11Prob01 { 
 	public static void main(String args[]) {
+		ArrayList<Person> personArrayList = new ArrayList<person>();
 		try (
 			DataInputStream input = new DataInputStream(new FileInputStream("src/people.dat"));
 			DataOutputStream output = new DataOutputStream(new FileOutputStream("src/people-copy.dat"));
@@ -22,22 +26,45 @@ public class Lab11Prob01 {
 				double salary = input.readDouble();
 				output.writeDouble(salary);
 				System.out.printf("%d %s %s %d %.2f%n", age, name, Address, zipCode, salary);
+				personArrayList.add(new Person(age, name, Address, zipCode, salary));
 			}
 		} catch (EOFException e) {
 			System.out.print("");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		personArrayList.sort(salary);
 	}
 }
 
 public class Person implements Comparable<Person> {
+	
+	private int age;
+	private String name;
+	private String address;
+	private int zipCode;
+	private double salary;
+	
+	//default constructor
+	public Person() {
+		new Person();
+		setAge(20);
+		setName("John Doe");
+		setAddress("123 Main St");
+		setZipCode(12345);
+		setSalary(63000.3);
+	}
+	//convenience constructor
+	public Person(int age, String name, String address, int zipCode, double salary) {
+		new Person();
+		setAge(age);
+		setName(name);
+		setAddress(address);
+		setZipCode(zipCode);
+		setSalary(salary);
+		
+	}
 
-	int age;
-	String name;
-	String Address;
-	int zipCode;
-	double salary;
 	
 	public void setAge(int age) {
 		this.age = age;
@@ -47,8 +74,8 @@ public class Person implements Comparable<Person> {
 		this.name = name;
 	}
 	
-	public void setAddress(String Address) {
-		this.Address = Address;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 	public void setZipCode(int zipCode) {
@@ -68,7 +95,7 @@ public class Person implements Comparable<Person> {
 	}
 	
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 	
 	public int getZipCode() {
@@ -79,4 +106,24 @@ public class Person implements Comparable<Person> {
 		return salary;
 	}
 
+		
+	public String toString() {
+		return String.format("%d %s %s %d %.2f", age, name, address, zipCode, salary);
+		
+	}
+	
+	@Override
+	public int compareTo(Person o) {
+		if (this.salary == o.salary) {
+			return 0;
+		} else {
+			if(this.salary > o.salary) {
+			return 1;
+		} else {
+			return -1;
+			}
+		}
+	}
 }
+
+	
