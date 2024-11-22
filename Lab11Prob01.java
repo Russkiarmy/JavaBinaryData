@@ -1,5 +1,5 @@
 /**
- * File: Lab11.java
+ * File: Lab11Prob01.java
  * Class: CSCI 1302
  * Authors: Eli McHugh, Rendy Jenkins
  * Last Modified: November 22, 2024
