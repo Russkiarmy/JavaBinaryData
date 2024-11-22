@@ -34,11 +34,11 @@ public class Lab11Prob02 {
 			e.printStackTrace();
 		}
 		
-		try (ObjectOutputStream outdata = new ObjectOutputStream(new FileOutputStream("src/people-salary-sorted.dat"));
+		try (DataOutputStream outdata = new DataOutputStream(new FileOutputStream("src/people-salary-sorted.dat"));
 				){
 			java.util.Collections.sort(personArrayList);
 			for (int i = 0; i < personArrayList.size(); i++) {
-				outdata.writeObject(personArrayList.get(i).toString());
+				outdata.writeString(personArrayList.get(i).toString());
 				System.out.println(personArrayList.get(i).toString());
 			}
 		} catch (EOFException e) {
