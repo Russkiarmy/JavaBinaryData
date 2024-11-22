@@ -5,8 +5,6 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 
-
-
 public class Lab11Prob01 { 
 	public static void main(String args[]) {
 		ArrayList<Person> personArrayList = new ArrayList<person>();
