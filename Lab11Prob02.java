@@ -15,7 +15,7 @@ public class Lab11Prob01 {
 				output.writeInt(age);
 				String name = input.readUTF();
 				output.writeUTF(name);
-		        String Address = input.readUTF();
+		        	String Address = input.readUTF();
 				output.writeUTF(Address);
 				int zipCode = input.readInt();
 				output.writeInt(zipCode);
