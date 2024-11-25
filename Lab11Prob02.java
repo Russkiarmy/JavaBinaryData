@@ -1,3 +1,11 @@
+/**
+ * File: Lab11Prob01.java
+ * Class: CSCI 1302
+ * Authors: Eli McHugh, Rendy Jenkins
+ * Last Modified: November 22, 2024
+ * Description: Read people.dat and print to a copy file as well as the console, create people objects accordingly.
+ */
+
 import java.io.DataOutputStream;
 import java.io.EOFException;
 import java.io.FileOutputStream;
