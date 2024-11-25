@@ -46,7 +46,7 @@ public class Lab11Prob02 {
 				){
 			java.util.Collections.sort(personArrayList);
 			for (int i = 0; i < personArrayList.size(); i++) {
-				outdata.writeString(personArrayList.get(i).toString());
+				outdata.writeUTF(personArrayList.get(i).toString());
 				System.out.println(personArrayList.get(i).toString());
 			}
 		} catch (EOFException e) {
