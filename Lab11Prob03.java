@@ -15,7 +15,7 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
-public class Lab11Prob02 { 
+public class Lab11Prob03 { 
 	public static void main(String args[]) {
 		ArrayList<Person> personArrayList = new ArrayList<Person>();
 		try (
@@ -46,7 +46,7 @@ public class Lab11Prob02 {
 				){
 			java.util.Collections.sort(personArrayList);
 			for (int i = 0; i < personArrayList.size(); i++) {
-				outdata.writeString(personArrayList.get(i).toString());
+				outdata.writeUTF(personArrayList.get(i).toString());
 				System.out.println(personArrayList.get(i).toString());
 			}
 		} catch (EOFException e) {
@@ -58,7 +58,9 @@ public class Lab11Prob02 {
 		
 	}
 }
-class Person implements Comparable<Person> {
+class Person implements Comparable<Person>, Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
 	private int age;
 	private String name;
