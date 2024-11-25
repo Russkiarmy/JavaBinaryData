@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
@@ -42,11 +43,11 @@ public class Lab11Prob03 {
 			e.printStackTrace();
 		}
 		
-		try (DataOutputStream outdata = new DataOutputStream(new FileOutputStream("src/people-salary-sorted.dat"));
+		try (ObjectOutputStream outdata = new ObjectOutputStream(new FileOutputStream("src/people-salary-sorted.dat"));
 				){
 			java.util.Collections.sort(personArrayList);
 			for (int i = 0; i < personArrayList.size(); i++) {
-				outdata.writeUTF(personArrayList.get(i).toString());
+				outdata.writeObject(personArrayList.get(i));
 				System.out.println(personArrayList.get(i).toString());
 			}
 		} catch (EOFException e) {
